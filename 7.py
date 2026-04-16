@@ -6,28 +6,28 @@ Implementa un metodo que aumente el salario en un porcentaje dado y otro que mue
 
 class empleado:
     def __init__(self, nombre, salario, departamento):
-        self.nombre = nombre
-        self.salario = salario
-        self.departamento = departamento
+        self._nombre = nombre
+        self._salario = salario
+        self._departamento = departamento
     
     # getters
     def getNombre(self):
-        return self.nombre
+        return self._nombre
     def getSalario(self):
-        return self.salario
+        return self._salario
     def getDepartamento(self):
-        return self.departamento
+        return self._departamento
     
     def mostrarInfo(self):
-        return f"Empleado: {self.nombre} | Departamento: {self.departamento} | Salario: ${self.salario:.2f}"
+        return f"Empleado: {self.getNombre()} | Departamento: {self.getDepartamento()} | Salario: ${self.getSalario():.2f}"
     
     # setters
     def aumentarSalario(self, porcentaje):
         try:
             factor = float(porcentaje) / 100
-            print(f"SALARIO ANTERIOR: {self.salario}")
-            self.salario = self.salario + (self.salario * factor)
-            print(f"SALARIO CON AUMENTO: {self.salario}")
+            print(f"SALARIO ANTERIOR: {self._salario}")
+            self._salario = self._salario + (self._salario * factor)
+            print(f"SALARIO CON AUMENTO: {self._salario}")
         except ValueError:
             print(f"Porcentaje no valido.")
 
