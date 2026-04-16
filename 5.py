@@ -6,15 +6,15 @@ Implementa métodos para agregar una nota y calcular el promedio de las notas.
 
 class alumno:
     def __init__(self, nombre, edad):
-        self.nombre = nombre
-        self.edad = edad
-        self.Notas = []
+        self._nombre = nombre
+        self._edad = edad
+        self._Notas = []
     
     # getters
     def CalcularPromedio(self):
-        cantidadnotas = len(self.Notas)
+        cantidadnotas = len(self._Notas)
         sumatotal = 0
-        for nota in self.Notas:
+        for nota in self._Notas:
             sumatotal = sumatotal + nota
         return sumatotal / cantidadnotas
     
@@ -22,7 +22,7 @@ class alumno:
     def AddNote(self, nota):
         try:
             numero = int(nota)
-            self.Notas.append(nota)
+            self._Notas.append(nota)
             print("Nota ingresada")
         except ValueError:
             print("Valor no valido.")
