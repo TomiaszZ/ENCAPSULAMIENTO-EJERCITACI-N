@@ -6,29 +6,33 @@
 '''
 
 class persona:
-    def __init__(self, edad, nombre, apellido):
-        self.edad = edad
-        self.nombre = nombre
-        self.apellido = apellido
+    def __init__(self, edad, nombre, apellido, sexo):
+        self._edad = edad
+        self._nombre = nombre
+        self._apellido = apellido
+        self._sexo = sexo
 
     # Getters
     def Obtener_nombre(self):
-        return self.nombre
+        return self._nombre
     def obtener_apellido(self):
-        return self.apellido
+        return self._apellido
     def obtener_edad(self):
-        return self.edad
+        return self._edad
+    def obtenersexo(self):
+        return self._sexo
     
     # Setters
     def EstablecerEdad(self, edadInput):
-        self.edad = edadInput
+        self._edad = edadInput
 
 # Ejemplo de uso
 if __name__ == "__main__":
-    usuario = persona(25, "Geronimo", "Benavidez")
+    usuario = persona(25, "Geronimo", "Benavidez", "Masculino")
 
     print(f"Nombre: {usuario.Obtener_nombre()} {usuario.obtener_apellido()}")
     print(f"Edad inicial: {usuario.obtener_edad()}")
+    print(f"genero: {usuario.obtenersexo()}")
 
     usuario.EstablecerEdad(26)
     print(f"Feliz cumple momo {usuario.Obtener_nombre()}: {usuario.obtener_edad()}")
