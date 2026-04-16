@@ -8,16 +8,16 @@ from datetime import date
 
 class libro:
     def __init__(self, nombre, descripcion, publicacionannio):
-        self.nombre = nombre
-        self.descripcion = descripcion
-        self.publicacionannio = publicacionannio
+        self._nombre = nombre
+        self._descripcion = descripcion
+        self._publicacionannio = publicacionannio
     # Getters
     def GetDescrition(self):
-        return self.descripcion
+        return self._descripcion
     
     def VerifyClassic(self):
         anio_actual = date.today().year
-        diferencia = anio_actual - self.publicacionannio
+        diferencia = anio_actual - self._publicacionannio
         if diferencia >= 50:
             return True
         else:
