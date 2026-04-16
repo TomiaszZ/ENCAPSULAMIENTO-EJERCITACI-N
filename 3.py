@@ -6,35 +6,35 @@ Implementa metodos para depositar y retirar dinero, asegurandote de que el saldo
 '''
 class cuentabancaria:
     def __init__(self, saldo, titular, numerocuenta):
-        self.saldo = saldo
-        self.titular = titular
-        self.numerocuenta = numerocuenta
+        self._saldo = saldo
+        self._titular = titular
+        self._numerocuenta = numerocuenta
     
     # Getters
     def obtenertitular(self):
-        return self.titular
+        return self._titular
     def obtenercuenta(self):
-        return self.numerocuenta
+        return self._numerocuenta
     def obtenersaldo(self):
-        return self.saldo
+        return self._saldo
     
     # Metodos de accion
     def depositar(self, cantidad):
         try:
             numero = int(cantidad)
-            self.saldo += numero
-            print(f"Saldo sumado: {numero}. Total actual: {self.saldo}")
+            self._saldo += numero
+            print(f"Saldo sumado: {numero}. Total actual: {self.obtenersaldo()}")
         except ValueError:
             print("Error: La cantidad debe ser un numero entero.")
             
     def retirar(self, cantidad): 
         try:
             numero = int(cantidad)
-            if numero > self.saldo:
-                print(f"Error: No tienes suficiente saldo. Saldo actual: ${self.saldo}")
+            if numero > self._saldo:
+                print(f"Error: No tienes suficiente saldo. Saldo actual: ${self.obtenersaldo()}")
             else:
-                self.saldo -= numero
-                print(f"Retiro exitoso de ${numero}. Nuevo saldo: ${self.saldo}")
+                self._saldo -= numero
+                print(f"Retiro exitoso de ${numero}. Nuevo saldo: ${self.obtenersaldo()}")
         except ValueError:
             print("Error: La cantidad debe ser un numero entero.")
 
